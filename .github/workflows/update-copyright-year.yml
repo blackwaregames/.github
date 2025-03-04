@@ -24,7 +24,7 @@ jobs:
           git config --local user.email "github-actions@github.com"
           # Commit changes only if there are modifications
           if [ -n "$(git status --porcelain)" ]; then
-            git commit -am "Update LICENSE year to $(date +'%Y')"
+            git commit -am "Update README.md"
             git push
           else
             echo "No changes to commit"
