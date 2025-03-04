@@ -25,7 +25,7 @@ Check out some of our key game projects:
 
 ## License
 
-Copyright © 2018 Blackware .Int All rights reserved.
+Copyright © 2025 Blackware .Int All rights reserved.
 
 This work is protected by copyright law. No part of repositories may be reproduced, distributed, modified, adapted, or used to create derivative works without the prior written consent of the copyright holder.  
 
