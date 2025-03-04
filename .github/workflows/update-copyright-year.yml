@@ -1,0 +1,31 @@
+name: Update README.md Copyright Year
+
+on:
+  schedule:
+    - cron: '0 0 1 1 *'  # Runs at midnight on January 1st (UTC)
+  workflow_dispatch:    # Allows manual triggering
+
+jobs:
+  update_license:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update Copyright year
+        run: |
+          current_year=$(date +'%Y')
+          echo "Updating Copyright with year: $current_year"
+          sed -i "s/Copyright © [0-9]\{4\}/Copyright © $current_year/" profile/README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "github-actions@github.com"
+          # Commit changes only if there are modifications
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -am "Update LICENSE year to $(date +'%Y')"
+            git push
+          else
+            echo "No changes to commit"
+          fi
